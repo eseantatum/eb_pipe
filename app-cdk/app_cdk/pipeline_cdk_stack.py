@@ -30,6 +30,7 @@ class PipelineCdkStack(Stack):
             build_spec = codebuild.BuildSpec.from_source_filename('./buildspec_test.yml'),
             #build_spec = codebuild.BuildSpec.from_object({
             #    'version': '0.2'
+            
             #}),
             environment = codebuild.BuildEnvironment(
                 build_image = codebuild.LinuxBuildImage.STANDARD_5_0,
