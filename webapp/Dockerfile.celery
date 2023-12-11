@@ -1,0 +1,35 @@
+# This Dockerfile builds the CELERY Worker only.
+
+# Use an official Python runtime as a parent image
+FROM python:3.9
+
+# Set the working directory in the container to /app
+WORKDIR /app
+
+# Install any needed system packages
+# By combining these into a single RUN and cleaning up after, we reduce the size of the image
+RUN apt-get update && apt-get install -y \
+    netcat-traditional \
+    cron \
+    ffmpeg \
+    libsm6 \
+    libxext6 && \
+    rm -rf /var/lib/apt/lists/*
+
+# First copy just the requirements file, so that this layer can be cached.
+# This means that when you change your code, but not your dependencies,
+# this step won't need to be re-run.
+COPY api/requirements.txt ./
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application files
+# Do this after the install so that changes to your application code don't
+# invalidate the cached layer that contains the installed packages.
+COPY api/api.py api/.flaskenv api/config.py api/manage.py api/entrypoint_cel.sh ./
+
+# Make the entrypoint file executable
+RUN chmod +x /app/entrypoint_cel.sh
+
+ENTRYPOINT ["/app/entrypoint_cel.sh"]

@@ -10,10 +10,10 @@ phases:
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $IMAGE_REPO_URI
   build:
     commands:
-      - cd ./my-app
+      - cd ./webapp
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t myapp:$IMAGE_TAG .
+      - docker compose up
       - docker tag myapp:$IMAGE_TAG $IMAGE_REPO_URI:$IMAGE_TAG
   post_build:
     commands:
