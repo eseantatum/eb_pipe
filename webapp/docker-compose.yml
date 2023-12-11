@@ -50,6 +50,7 @@ services:
       context: .
       dockerfile: Dockerfile.celery
     command: celery --app api.celery worker --loglevel=info --logfile=logs/celery.log
+    image: worker
     volumes:
       - ./api:/app
     environment:
