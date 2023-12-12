@@ -19,7 +19,7 @@ phases:
         for service in $(docker-compose config --services); do
           echo Building $service
           docker-compose build $service
-          docker tag $IMAGE_REPO_URI/$service:latest $IMAGE_REPO_URI/$service:latest
+          docker tag $service:latest 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/$service:latest
         done
 
   post_build:
