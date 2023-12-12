@@ -68,7 +68,7 @@ services:
       - redis
 
   redis:
-    image: redis:6-alpine
+    image: redis
 
 volumes:
   postgres_data:
