@@ -31,5 +31,7 @@ phases:
       - |
         for service in $(docker-compose config --services); do
           echo Pushing $service
-          docker push 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/$service
+          docker push 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/$service:latest
+        docker push 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/db:latest
+        docker push 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/redis:latest
         done
