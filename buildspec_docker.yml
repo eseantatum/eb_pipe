@@ -20,6 +20,8 @@ phases:
           echo Building $service
           docker-compose build $service
           docker tag $service:latest 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/$service:latest 
+        docker tag nginx:stable-alpine 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/db:latest
+        docker tag node:16-alpine 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/redis:latest
         docker images
         done
 
