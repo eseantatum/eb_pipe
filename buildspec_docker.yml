@@ -20,6 +20,7 @@ phases:
           echo Building $service
           docker-compose build $service
           docker tag $service:latest 295939261429.dkr.ecr.us-gov-west-1.amazonaws.com/$service:latest 
+        docker images
         done
 
   post_build:
