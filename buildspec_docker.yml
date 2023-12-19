@@ -25,7 +25,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker images to ECR...
+      - echo Pushing the Docker images to ECR..
 
       # Loop through services again to push images to ECR
       - |
