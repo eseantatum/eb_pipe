@@ -8,13 +8,7 @@ WORKDIR /app
 
 # Install any needed system packages
 # By combining these into a single RUN and cleaning up after, we reduce the size of the image
-RUN apt-get update && apt-get install -y \
-    netcat-traditional \
-    cron \
-    ffmpeg \
-    libsm6 \
-    libxext6 && \
-    rm -rf /var/lib/apt/lists/*
+
 
 # First copy just the requirements file, so that this layer can be cached.
 # This means that when you change your code, but not your dependencies,
