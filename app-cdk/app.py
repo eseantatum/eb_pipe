@@ -9,18 +9,18 @@ app = cdk.App()
 
 ecr_stack = EcrCdkStack(
     app,
-    'ecr-stack'
+    'ecr-stack-eb'
 )
 
 test_app_stack = AppCdkStack(
     app,
-    'test-app-stack',
+    'test-app-stack-eb',
     ecr_repository = ecr_stack.ecr_data
 )
 
 pipeline_stack = PipelineCdkStack(
     app,
-    'pipeline-stack',
+    'pipeline-stack-eb',
     ecr_repository = ecr_stack.ecr_data,
 )
 

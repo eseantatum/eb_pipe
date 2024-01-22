@@ -18,7 +18,7 @@ class PipelineCdkStack(Stack):
         # Creates a CodeCommit repository called 'CICD_Workshop'
         repo = codecommit.Repository(
             self, 'CICD_Workshop',
-            repository_name = 'CICD_Workshop',
+            repository_name = 'CICD_Workshop_eb',
             description = 'Repository for my application code and infrastructure'
         )
 
