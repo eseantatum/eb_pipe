@@ -1,5 +1,0 @@
-Celery Log File
-[2024-01-10 18:01:14,815: INFO/MainProcess] Connected to redis://redis:6379/0
-[2024-01-10 18:01:14,821: INFO/MainProcess] mingle: searching for neighbors
-[2024-01-10 18:01:15,831: INFO/MainProcess] mingle: all alone
-[2024-01-10 18:01:15,842: INFO/MainProcess] celery@590083e28e54 ready.
