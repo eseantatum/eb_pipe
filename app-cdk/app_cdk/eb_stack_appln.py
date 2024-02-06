@@ -4,7 +4,7 @@ from aws_cdk import (
     aws_iam as iam,
     aws_s3_assets as s3_assets,
     aws_elasticbeanstalk as elasticbeanstalk,
-    core as cdk
+#    core as cdk
 )
 
 
